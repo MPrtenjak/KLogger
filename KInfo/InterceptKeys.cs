@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
 
-using static KLogger.WinAPI;
+using static KInfo.WinAPI;
 
-namespace KLogger
+namespace KInfo
 {
   public static class InterceptKeys
   {

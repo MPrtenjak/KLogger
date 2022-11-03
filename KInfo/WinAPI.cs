@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace KLogger
+namespace KInfo
 {
   public class WinAPI
   {

